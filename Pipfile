@@ -9,6 +9,8 @@ verify_ssl = true
 colorthief = "*"
 requests = "*"
 pillow = "*"
+pil = "*"
+tqdm = "*"
 
 [requires]
-python_version = "3.7"
+python_version = "3"
