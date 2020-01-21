@@ -1,5 +1,3 @@
-# https://ws.audioscrobbler.com/2.0/?method=user.gettopalbums&user=pbexe&api_key=***REMOVED***&format=json&period=1month&limit=100
-
 import colorsys
 import io
 import math
@@ -80,40 +78,6 @@ def create_collage(width, height, listofimages):
         x += thumbnail_width
         y = 0
 
-    new_im.save("Collage.jpg")
+    new_im.save("collage.jpg")
 
-
-def create_collage_colours(width, height, listofimages):
-    cols = 10
-    rows = 10
-    thumbnail_width = width//cols
-    thumbnail_height = height//rows
-    size = thumbnail_width, thumbnail_height
-    new_im = Image.new('RGB', (width, height))
-    ims = []
-    for p in listofimages:
-        try:
-            im = p[0]
-            im.thumbnail(size)
-            ims.append(im)
-        except ValueError:
-            print("ERROR: MISSING URL!!")
-    i = 0
-    x = 0
-    y = 0
-    for col in range(cols):
-        for row in range(rows):
-            print(i, x, y)
-            try:
-                new_im.paste(ims[i], (x, y))
-            except IndexError:
-                pass
-            i += 1
-            y += thumbnail_height
-        x += thumbnail_width
-        y = 0
-
-    new_im.save("CollageColours.jpg")
-
-create_collage(1740, 1740, albums_twice_sorted)
-create_collage_colours(1740, 1740, albums_twice_sorted)
+create_collage(3000, 3000, albums_twice_sorted)
