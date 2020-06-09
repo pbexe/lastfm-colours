@@ -17,11 +17,11 @@ with open("key", "r") as fp:
 r = requests.get("https://ws.audioscrobbler.com/2.0/",
                  {
                      "method": "user.gettopalbums",
-                     "user": "pbexe",
+                     "user": "TomListens_",
                      "api_key": key,
                      "format": "json",
                      "period": "1month",
-                     "limit": 104
+                     "limit": 120
                  }).json()
 print("Made request")
 albums = []
@@ -37,6 +37,8 @@ for image in tqdm(albums):
         image = Image.open(path)
         # image = Image.new("RGB", (300,300), rgb)
         album_images.append((image, hlsval, rgb))
+        if len(album_images) == 100:
+            break
     except ValueError:
         pass
 
